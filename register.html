@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta - Florista</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="/">Florista</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/catalog.html">Catálogo</a></li>
+                    <li><a href="/contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icons">
+                <a href="/catalog.html" class="search-icon">
+                    <img src="/images/search.svg" alt="Buscar">
+                </a>
+                <a href="/order.html" class="cart-icon">
+                    <img src="/images/cart.svg" alt="Carrito">
+                </a>
+                <div class="user-dropdown __web-inspector-hide-shortcut__"><a href="javascript:void(0)" class="user-icon" style="display: block;">
+                    </a><a href="/login.html">Mi cuenta</a>
+                    <a href="javascript:void(0)" onclick="logout()" class="__web-inspector-hide-shortcut__">Salir</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="auth-page">
+        <div class="container">
+            <div class="auth-breadcrumb">
+                <a href="/">Inicio</a> > <span>Crear cuenta</span>
+            </div>
+            
+            <h1>Crear cuenta</h1>
+            
+            <div class="auth-container">
+                <div class="auth-form">
+                    <h2>Crear Cuenta</h2>
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                            <div class="password-toggle">
+                                <img src="/images/eye.svg" alt="Mostrar">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input type="password" id="password" name="password" required>
+                            <div class="password-toggle">
+                                <img src="/images/eye.svg" alt="Mostrar">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirmar Contraseña</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            <div class="password-toggle">
+                                <img src="/images/eye.svg" alt="Mostrar">
+                            </div>
+                        </div>
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">Acepto los términos y condiciones</label>
+                        </div>
+                        <button type="submit" class="auth-btn">Crear Cuenta</button>
+                    </form>
+                    <p class="auth-redirect">¿Ya tienes una cuenta? <a href="/login.html">Iniciar sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="/images/florista-logo.svg" alt="Florista">
+            </div>
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <p>info@florista.com</p>
+                    <p>+51 929540815</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Dirección</h4>
+                    <p>HHAA SAUL CANTORAL</p>
+                    <p>Lima, Perú</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Horario</h4>
+                    <p>Lun-Vie: 9:00 - 18:00</p>
+                    <p>Sáb: 10:00 - 14:00</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/jardindeprimaveraeternalulu/" target="_blank" rel="noopener noreferrer">
+                            <img src="/images/instagram.svg" alt="Instagram">
+                        </a>
+                        <a href="https://www.facebook.com/search/top/?q=primavera%20lulu" target="_blank" rel="noopener noreferrer"><img src="/images/facebook.svg" alt="Facebook"></a>
+                        <a href="https://www.tiktok.com/@jardindeprimaveralulu" target="_blank" rel="noopener noreferrer"><img src="/images/twitter.svg" alt="Twitter"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Florista. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizar Pedido - Florista</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script>
+        // Redirigir si no hay usuario logueado
+        const usuarios = localStorage.getItem('usuarios');
+        if (!usuarios) {
+            window.location.href = '/login.html';
+        }
+    </script>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="/">Florista</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/catalog.html">Catálogo</a></li>
+                    <li><a href="/contact.html">Contacto</a></li>
+                    <li><a href="/order.html" class="active">Pedido</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icons">
+                <a href="/catalog.html" class="search-icon">
+                    <img src="/images/search.svg" alt="Buscar">
+                </a>
+                <a href="/order.html" class="cart-icon">
+                    <img src="/images/cart.svg" alt="Carrito">
+                </a>
+                <div class="user-dropdown __web-inspector-hide-shortcut__"><a href="javascript:void(0)" class="user-icon" style="display: block;">
+                    </a><a href="/login.html">Mi cuenta</a>
+                    <a href="javascript:void(0)" onclick="logout()" class="__web-inspector-hide-shortcut__">Salir</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="order-page">
+        <div class="container">
+            <h1>Realizar Pedido</h1>
+            
+            <div class="order-form">
+                <div class="informacion-section">
+                    <h2>Informacion</h2>
+                    
+                    <div class="address-form">
+                        <div class="address-header">
+                            <h3>Add New Address</h3>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">Nombre</label>
+                                <input type="text" id="firstName" name="firstName">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Apellido</label>
+                                <input type="text" id="lastName" name="lastName">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" id="address" name="address">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="aptNumber">Apt Number</label>
+                                <input type="text" id="aptNumber" name="aptNumber">
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <input type="text" id="state" name="state">
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">Zip</label>
+                                <input type="text" id="zip" name="zip">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row products-section">
+                            <div class="form-group full-width">
+                                <label for="products">Products</label>
+                                <textarea id="products" name="products" rows="6"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="cancel-btn">cancel</button>
+                            <button type="submit" class="save-btn">Guardar esta dirección</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="/images/florista-logo.svg" alt="Florista">
+            </div>
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <p>info@florista.com</p>
+                    <p>+51 929540815</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Dirección</h4>
+                    <p>HHAA SAUL CANTORAL</p>
+                    <p>Lima, Perú</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Horario</h4>
+                    <p>Lun-Vie: 9:00 - 18:00</p>
+                    <p>Sáb: 10:00 - 14:00</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/jardindeprimaveraeternalulu/" target="_blank" rel="noopener noreferrer">
+                            <img src="/images/instagram.svg" alt="Instagram">
+                        </a>
+                        <a href="https://www.facebook.com/search/top/?q=primavera%20lulu" target="_blank" rel="noopener noreferrer"><img src="/images/facebook.svg" alt="Facebook"></a>
+                        <a href="https://www.tiktok.com/@jardindeprimaveralulu" target="_blank" rel="noopener noreferrer"><img src="/images/twitter.svg" alt="Twitter"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Florista. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="/js/auth.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

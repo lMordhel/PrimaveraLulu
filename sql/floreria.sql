@@ -1,0 +1,1 @@
+SELECT * FROM floreria_db.productos;

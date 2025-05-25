@@ -1,0 +1,89 @@
+/* Animaciones para la página web de Florería */
+
+/* Animación de aparición al hacer scroll */
+.catalog-item, .suggestion-item, .product-card, .hero-content, .section-title {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animación para botones */
+.btn-pulse {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.btn-clicked {
+    transform: scale(0.95);
+    transition: transform 0.2s ease;
+}
+
+.add-to-cart-btn, .btn, .tab-btn {
+    transition: all 0.3s ease;
+}
+
+/* Animación para imágenes */
+.product-main-image img, .catalog-item img, .suggestion-item img {
+    transition: transform 0.5s ease;
+}
+
+.img-zoom {
+    transform: scale(1.05);
+}
+
+/* Animación para el carrito */
+@keyframes cartBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.cart-bounce {
+    animation: cartBounce 0.5s ease;
+}
+
+/* Animación para el footer */
+footer {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.footer-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animación para el menú de navegación */
+nav ul li {
+    position: relative;
+}
+
+nav ul li::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ff6b6b;
+    transition: width 0.3s ease;
+}
+
+nav ul li:hover::after {
+    width: 100%;
+}
+
+/* Animación para las tarjetas de productos */
+.catalog-item, .suggestion-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.catalog-item:hover, .suggestion-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
