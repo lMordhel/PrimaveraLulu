@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta - Florería Lulu</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="/">Florista</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/catalog.html">Catálogo</a></li>
+                    <li><a href="/contact.html">Contacto</a></li>
+                    <li><a href="/order.html">Pedido</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icons">
+                <a href="/catalog.html" class="search-icon">
+                    <img src="/images/search.svg" alt="Buscar">
+                </a>
+                <a href="/order.html" class="cart-icon">
+                    <img src="/images/cart.svg" alt="Carrito">
+                </a>
+                <div class="user-dropdown">
+                    <a href="javascript:void(0)" class="user-icon" style="display: block;">
+                        <img src="/images/user.svg" alt="Usuario">
+                    </a>
+                    <a href="javascript:void(0)" onclick="irAMiCuenta()">Mi cuenta</a>
+                    <a href="javascript:void(0)" onclick="logout()">Salir</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mantener el contenido principal igual -->
+    <main class="profile-page">
+        <div class="container">
+            <div class="profile-container">
+                <!-- Sidebar de navegación -->
+                <aside class="profile-sidebar">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <img src="/images/user.svg" alt="Avatar" id="userAvatar">
+                        </div>
+                        <h2 id="userName">Dianne Russell</h2>
+                        <p class="user-type">Customer</p>
+                        <button class="edit-profile-btn" onclick="editarPerfil()">Edit Profile</button>
+                    </div>
+                    
+                    <nav class="profile-nav">
+                        <ul>
+                            <li><a href="#dashboard" class="nav-item active" onclick="mostrarSeccion('dashboard')">Dashboard</a></li>
+                            <li><a href="#orders" class="nav-item" onclick="mostrarSeccion('orders')">Order History</a></li>
+                            <li><a href="#wishlist" class="nav-item" onclick="mostrarSeccion('wishlist')">Wishlist</a></li>
+                            <li><a href="#cart" class="nav-item" onclick="mostrarSeccion('cart')">Shopping Cart</a></li>
+                            <li><a href="#settings" class="nav-item" onclick="mostrarSeccion('settings')">Settings</a></li>
+                            <li><a href="javascript:void(0)" class="nav-item" onclick="logout()">Log-out</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- Contenido principal -->
+                <div class="profile-content">
+                    <!-- Mantener todas las secciones igual -->
+                    <!-- Dashboard Section -->
+                    <section id="dashboard-section" class="content-section active">
+                        <div class="billing-info">
+                            <h3>BILLING ADDRESS</h3>
+                            <div class="user-info">
+                                <h4 id="userNameBilling">Dianne Russell</h4>
+                                <p id="userAddress">4140 Parker Rd. Allentown, New Mexico 31134</p>
+                                <p id="userEmail">dainne.russell@gmail.com</p>
+                                <p id="userPhone">(671) 555-0110</p>
+                                <button class="edit-address-btn" onclick="editarDireccion()">Edit Address</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Order History Section -->
+                    <section id="orders-section" class="content-section">
+                        <div class="section-header">
+                            <h3>Recent Order History</h3>
+                            <a href="#" class="view-all">View All</a>
+                        </div>
+                        <div class="orders-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ORDER ID</th>
+                                        <th>DATE</th>
+                                        <th>TOTAL</th>
+                                        <th>STATUS</th>
+                                        <th>ACTION</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ordersTableBody">
+                                    <tr>
+                                        <td>#738</td>
+                                        <td>8 Sep, 2020</td>
+                                        <td>$135.00 (5 Products)</td>
+                                        <td><span class="status processing">Processing</span></td>
+                                        <td><a href="#" class="view-details">View Details</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#703</td>
+                                        <td>24 May, 2020</td>
+                                        <td>$25.00 (1 Product)</td>
+                                        <td><span class="status on-the-way">on the way</span></td>
+                                        <td><a href="#" class="view-details">View Details</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#130</td>
+                                        <td>22 Oct, 2020</td>
+                                        <td>$250.00 (4 Products)</td>
+                                        <td><span class="status completed">Completed</span></td>
+                                        <td><a href="#" class="view-details">View Details</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Wishlist Section -->
+                    <section id="wishlist-section" class="content-section">
+                        <h3>Mi Lista de Deseos</h3>
+                        <div class="wishlist-grid" id="wishlistGrid">
+                            <p>No tienes productos en tu lista de deseos.</p>
+                        </div>
+                    </section>
+
+                    <!-- Shopping Cart Section -->
+                    <section id="cart-section" class="content-section">
+                        <h3>Carrito de Compras</h3>
+                        <div class="cart-items" id="cartItems">
+                            <p>Tu carrito está vacío.</p>
+                        </div>
+                    </section>
+
+                    <!-- Settings Section -->
+                    <section id="settings-section" class="content-section">
+                        <h3>Configuración de Cuenta</h3>
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label for="settingsEmail">Email:</label>
+                                <input type="email" id="settingsEmail" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="settingsName">Nombre:</label>
+                                <input type="text" id="settingsName" name="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="settingsPhone">Teléfono:</label>
+                                <input type="tel" id="settingsPhone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="settingsAddress">Dirección:</label>
+                                <textarea id="settingsAddress" name="address" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="save-settings-btn">Guardar Cambios</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="images/florista-logo.svg" alt="Florista">
+            </div>
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <p>info@florista.com</p>
+                    <p>+51 929540815</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Dirección</h4>
+                    <p>HHAA SAUL CANTORAL</p>
+                    <p>Lima, Perú</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Horario</h4>
+                    <p>Lun-Vie: 9:00 - 18:00</p>
+                    <p>Sáb: 10:00 - 14:00</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/jardindeprimaveraeternalulu/" target="_blank" rel="noopener noreferrer">
+                            <img src="/images/instagram.svg" alt="Instagram">
+                        </a>
+                        <a href="https://www.facebook.com/search/top/?q=primavera%20lulu" target="_blank" rel="noopener noreferrer"><img src="/images/facebook.svg" alt="Facebook"></a>
+                        <a href="https://www.tiktok.com/@jardindeprimaveralulu" target="_blank" rel="noopener noreferrer"><img src="/images/twitter.svg" alt="Twitter"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Florista. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/profile.js"></script>
+</body>
+</html>

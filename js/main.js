@@ -179,6 +179,68 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
+    }});
+    
+    // Función para cerrar sesión
+    const logoutLink = document.querySelector('.user-dropdown a[href="/logout"]');
+    if (logoutLink) {
+        logoutLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Eliminar datos de sesión del localStorage
+            localStorage.removeItem('usuarios');
+            // Redirigir a la página de inicio o login
+            window.location.href = '/login.html';
+        });
+    }
+
+    // Función para ir a Mi Cuenta
+    // ...existing code...
+
+// Mover la función fuera del evento DOMContentLoaded para hacerla global
+function irAMiCuenta() {
+    if (estaLogueado()) {
+        window.location.href = '/profile.html';
+    } else {
+        window.location.href = '/login.html';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Mostrar u ocultar el menú de usuario según el estado de login
+    const userIcon = document.querySelector('.user-icon');
+    const userDropdown = document.querySelector('.user-dropdown');
+    // Si tienes un id, por ejemplo: const userDropdown = document.getElementById('userDropdown');
+
+    // Verifica si el usuario está logeado
+    const usuarioLogeado = localStorage.getItem('usuarios');
+
+    if (userIcon && userDropdown) {
+        if (usuarioLogeado) {
+            // Mostrar el icono y el menú de usuario
+            userIcon.style.display = 'block';
+        } else {
+            // Ocultar el icono y el menú de usuario
+            userIcon.style.display = 'none';
+        }
+    }
+    
+    if (userIcon) {
+        userIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            const dropdown = this.querySelector('.user-dropdown');
+            if (dropdown) { // <-- Añadido para evitar el error
+                dropdown.classList.toggle('active');
+            }
+            // Cerrar el menú cuando se hace clic fuera de él
+            document.addEventListener('click', function closeDropdown(event) {
+                if (!userIcon.contains(event.target)) {
+                    if (dropdown) { // <-- Añadido para evitar el error
+                        dropdown.classList.remove('active');
+                    }
+                    document.removeEventListener('click', closeDropdown);
+                }
+            });
+        });
     }
     
     // Función para cerrar sesión

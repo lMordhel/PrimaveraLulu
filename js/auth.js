@@ -105,7 +105,28 @@ function verificarCredenciales(email, password) {
     // Buscar usuario por email y contraseña
     const usuario = usuarios.find(u => u.email === email && u.password === password);
     
-    return usuario !== undefined;
+    if (usuario) {
+        // Guardar sesión del usuario
+        localStorage.setItem('usuarioActual', JSON.stringify({
+            email: usuario.email,
+            fechaRegistro: usuario.fechaRegistro,
+            fechaLogin: new Date().toISOString()
+        }));
+        return true;
+    }
+    
+    return false;
+}
+
+// Función para obtener usuario actual
+function obtenerUsuarioActual() {
+    const usuario = localStorage.getItem('usuarioActual');
+    return usuario ? JSON.parse(usuario) : null;
+}
+
+// Función para verificar si el usuario está logueado
+function estaLogueado() {
+    return obtenerUsuarioActual() !== null;
 }
 
 // Función para mostrar/ocultar contraseña
@@ -236,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (loginExitoso) {
                     alert('¡Inicio de sesión exitoso!');
-                    window.location.href = '/';
+                    window.location.href = '/profile.html'; // Redirigir al perfil
                 } else {
                     alert('Email o contraseña incorrectos');
                 }
@@ -249,7 +270,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Función para cerrar sesión
 function logout() {
     // Eliminar datos de sesión del localStorage
-    localStorage.removeItem('usuarios');
+    localStorage.removeItem('usuarioActual');
     
     // Redirigir al usuario a la página de inicio o login
     window.location.href = '/login.html';

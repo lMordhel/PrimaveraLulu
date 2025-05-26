@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Florería</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/admin-dashboard.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar Navigation -->
+        <nav class="admin-sidebar">
+            <div class="admin-header">
+                <h2>🌸 Admin Panel</h2>
+                <div class="admin-user">
+                    <span id="admin-name">Administrador</span>
+                    <button onclick="logout()" class="logout-btn">Cerrar Sesión</button>
+                </div>
+            </div>
+            
+            <ul class="admin-menu">
+                <li><a href="#dashboard" class="menu-item active" onclick="showSection('dashboard')">📊 Dashboard</a></li>
+                <li><a href="#clientes" class="menu-item" onclick="showSection('clientes')">👥 Clientes</a></li>
+                <li><a href="#ordenes" class="menu-item" onclick="showSection('ordenes')">📦 Órdenes</a></li>
+                <li><a href="#historial" class="menu-item" onclick="showSection('historial')">📋 Historial</a></li>
+                <li><a href="#ingresos" class="menu-item" onclick="showSection('ingresos')">💰 Ingresos</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="admin-section active">
+                <h1>Dashboard General</h1>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Clientes</h3>
+                        <p class="stat-number" id="total-clientes">0</p>
+                        <span class="stat-label">Registrados</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Órdenes Hoy</h3>
+                        <p class="stat-number" id="ordenes-hoy">0</p>
+                        <span class="stat-label">Pedidos</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Ingresos del Mes</h3>
+                        <p class="stat-number" id="ingresos-mes">S/0</p>
+                        <span class="stat-label">Total</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Productos Vendidos</h3>
+                        <p class="stat-number" id="productos-vendidos">0</p>
+                        <span class="stat-label">Este mes</span>
+                    </div>
+                </div>
+                
+                <div class="dashboard-charts">
+                    <div class="chart-container">
+                        <h3>Ventas por Día</h3>
+                        <div class="chart-placeholder">
+                            <p>📈 Gráfico de ventas diarias</p>
+                            <small>Se conectará con la base de datos</small>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Productos Más Vendidos</h3>
+                        <div class="chart-placeholder">
+                            <p>🌹 Top productos</p>
+                            <small>Se conectará con la base de datos</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tabla de Todas las Ventas -->
+                <div class="sales-history-container">
+                    <h3>Historial Completo de Ventas</h3>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID Venta</th>
+                                    <th>Fecha</th>
+                                    <th>Cliente</th>
+                                    <th>Productos</th>
+                                    <th>Total</th>
+                                    <th>Estado</th>
+                                    <th>Método de Pago</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ventas-completas-table">
+                                <tr>
+                                    <td>V-001</td>
+                                    <td>15/05/2023</td>
+                                    <td>Juan Pérez</td>
+                                    <td>Ramo de rosas (2)</td>
+                                    <td>S/150.00</td>
+                                    <td><span class="status-completed">Completada</span></td>
+                                    <td>Tarjeta</td>
+                                    <td>
+                                        <button class="btn-view">Ver</button>
+                                        <button class="btn-print">Imprimir</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>V-002</td>
+                                    <td>14/05/2023</td>
+                                    <td>María García</td>
+                                    <td>Arreglo floral (1)</td>
+                                    <td>S/85.50</td>
+                                    <td><span class="status-completed">Completada</span></td>
+                                    <td>Efectivo</td>
+                                    <td>
+                                        <button class="btn-view">Ver</button>
+                                        <button class="btn-print">Imprimir</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>V-003</td>
+                                    <td>13/05/2023</td>
+                                    <td>Carlos López</td>
+                                    <td>Girasoles (3), Jarrón (1)</td>
+                                    <td>S/120.00</td>
+                                    <td><span class="status-completed">Completada</span></td>
+                                    <td>Transferencia</td>
+                                    <td>
+                                        <button class="btn-view">Ver</button>
+                                        <button class="btn-print">Imprimir</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="8" class="no-data">Más ventas se mostrarán cuando se conecte la base de datos</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-pagination">
+                        <button class="pagination-btn">Anterior</button>
+                        <span class="pagination-info">Página 1 de 1</span>
+                        <button class="pagination-btn">Siguiente</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clientes Section -->
+            <section id="clientes" class="admin-section">
+                <h1>Gestión de Clientes</h1>
+                <div class="section-header">
+                    <button class="btn-primary">+ Agregar Cliente</button>
+                    <input type="search" placeholder="Buscar cliente..." class="search-input">
+                </div>
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Teléfono</th>
+                                <th>Fecha Registro</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clientes-table">
+                            <tr>
+                                <td colspan="6" class="no-data">No hay clientes registrados aún</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Órdenes Section -->
+            <section id="ordenes" class="admin-section">
+                <h1>Gestión de Órdenes</h1>
+                <div class="section-header">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active">Todas</button>
+                        <button class="filter-btn">Pendientes</button>
+                        <button class="filter-btn">En Proceso</button>
+                        <button class="filter-btn">Completadas</button>
+                        <button class="filter-btn">Canceladas</button>
+                    </div>
+                    <input type="search" placeholder="Buscar orden..." class="search-input">
+                </div>
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID Orden</th>
+                                <th>Cliente</th>
+                                <th>Productos</th>
+                                <th>Total</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordenes-table">
+                            <tr>
+                                <td colspan="7" class="no-data">No hay órdenes registradas aún</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Historial Section -->
+            <section id="historial" class="admin-section">
+                <h1>Historial de Actividades</h1>
+                <div class="section-header">
+                    <select class="filter-select">
+                        <option value="all">Todas las actividades</option>
+                        <option value="orders">Órdenes</option>
+                        <option value="clients">Clientes</option>
+                        <option value="products">Productos</option>
+                    </select>
+                    <input type="date" class="date-input">
+                </div>
+                
+                <!-- Historial de Actividades General -->
+                <div class="activity-log">
+                    <h3>Actividades Recientes</h3>
+                    <div class="activity-item">
+                        <div class="activity-icon">📦</div>
+                        <div class="activity-content">
+                            <p><strong>Nueva orden creada</strong></p>
+                            <small>Orden #001 - Cliente: Juan Pérez - S/150.00</small>
+                            <span class="activity-time">Hace 2 horas</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">👤</div>
+                        <div class="activity-content">
+                            <p><strong>Nuevo cliente registrado</strong></p>
+                            <small>María García - maria@email.com</small>
+                            <span class="activity-time">Hace 5 horas</span>
+                        </div>
+                    </div>
+                    <div class="no-data">Más actividades se mostrarán cuando se conecte la base de datos</div>
+                </div>
+                
+                <!-- Historial de Órdenes Detallado -->
+                <div class="order-history">
+                    <h3>Historial de Órdenes</h3>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID Orden</th>
+                                    <th>Cliente</th>
+                                    <th>Fecha</th>
+                                    <th>Total</th>
+                                    <th>Estado Final</th>
+                                    <th>Método de Pago</th>
+                                    <th>Detalles</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historial-ordenes-table">
+                                <tr>
+                                    <td>ORD-001</td>
+                                    <td>Juan Pérez</td>
+                                    <td>15/05/2023</td>
+                                    <td>S/150.00</td>
+                                    <td><span class="status-completed">Completada</span></td>
+                                    <td>Tarjeta</td>
+                                    <td><button class="btn-view">Ver</button></td>
+                                </tr>
+                                <tr>
+                                    <td>ORD-002</td>
+                                    <td>María García</td>
+                                    <td>10/05/2023</td>
+                                    <td>S/85.50</td>
+                                    <td><span class="status-cancelled">Cancelada</span></td>
+                                    <td>Efectivo</td>
+                                    <td><button class="btn-view">Ver</button></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="7" class="no-data">Más órdenes históricas se mostrarán cuando se conecte la base de datos</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ingresos Section -->
+            <section id="ingresos" class="admin-section">
+                <h1>Análisis de Ingresos</h1>
+                <div class="revenue-summary">
+                    <div class="revenue-card">
+                        <h3>Ingresos de Hoy</h3>
+                        <p class="revenue-amount">S/0.00</p>
+                        <span class="revenue-change">+0% vs ayer</span>
+                    </div>
+                    <div class="revenue-card">
+                        <h3>Ingresos de la Semana</h3>
+                        <p class="revenue-amount">S/0.00</p>
+                        <span class="revenue-change">+0% vs semana anterior</span>
+                    </div>
+                    <div class="revenue-card">
+                        <h3>Ingresos del Mes</h3>
+                        <p class="revenue-amount">S/0.00</p>
+                        <span class="revenue-change">+0% vs mes anterior</span>
+                    </div>
+                    <div class="revenue-card">
+                        <h3>Ingresos del Año</h3>
+                        <p class="revenue-amount">S/0.00</p>
+                        <span class="revenue-change">+0% vs año anterior</span>
+                    </div>
+                </div>
+                
+                <div class="revenue-charts">
+                    <div class="chart-container">
+                        <h3>Tendencia de Ingresos</h3>
+                        <div class="chart-placeholder">
+                            <p>📊 Gráfico de tendencia mensual</p>
+                            <small>Se conectará con la base de datos</small>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Ingresos por Categoría</h3>
+                        <div class="chart-placeholder">
+                            <p>🥧 Gráfico circular por tipo de producto</p>
+                            <small>Se conectará con la base de datos</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

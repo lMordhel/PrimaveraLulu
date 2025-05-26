@@ -1,0 +1,304 @@
+:root {
+    --primary-color: #e75d5d;
+    --secondary-color: #f8f5f0;
+    --text-color: #333333;
+    --light-bg: #f5e8d7;
+    --border-color: #e0e0e0;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+}
+
+.profile-page {
+    min-height: auto; /* o un valor más pequeño como 70vh */
+    background-color: var(--secondary-color);
+    padding: 2rem 0;
+}
+
+.profile-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Sidebar */
+.profile-sidebar {
+    width: 300px;
+    background: linear-gradient(135deg, var(--light-bg) 0%, var(--primary-color) 100%);
+    padding: 2rem;
+    color: white;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: white;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-avatar img {
+    width: 40px;
+    height: 40px;
+    filter: invert(1);
+}
+
+#userName {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.user-type {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+}
+
+.edit-profile-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.edit-profile-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Navigation */
+.profile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Asegura disposición vertical */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+.profile-nav li {
+    margin-bottom: 0.5rem;
+    width: 100%; /* Asegura que cada elemento ocupe todo el ancho */
+}
+
+.nav-item {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    width: 100%; /* Asegura que cada enlace ocupe todo el ancho */
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+/* Content Area */
+.profile-content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Billing Info */
+.billing-info h3 {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+.user-info h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.user-info p {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.edit-address-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 1rem;
+}
+
+/* Orders Table */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-header h3 {
+    color: var(--text-color);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+}
+
+.view-all {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.orders-table {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.orders-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orders-table th {
+    background: var(--light-bg);
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.orders-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status.processing {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status.on-the-way {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.status.completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.view-details {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Settings Form */
+.settings-form {
+    max-width: 500px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.save-settings-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.save-settings-btn:hover {
+    background: #d54545;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        margin: 1rem;
+    }
+    
+    .profile-sidebar {
+        width: 100%;
+    }
+    
+    .orders-table {
+        overflow-x: auto;
+    }
+}
