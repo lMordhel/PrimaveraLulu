@@ -19,7 +19,7 @@
             <nav>
                 <ul>
                     <li><a href="/">Inicio</a></li>
-                    <li><a href="/catalog.html" class="active">Catálogo</a></li>
+                    <li><a href="/catalog.html">Catálogo</a></li>
                     <li><a href="/contact.html">Contacto</a></li>
                     <li><a href="/order.html">Pedido</a></li>
                 </ul>
@@ -31,10 +31,16 @@
                 <a href="/order.html" class="cart-icon">
                     <img src="/images/cart.svg" alt="Carrito">
                 </a>
-                <div class="user-dropdown __web-inspector-hide-shortcut__"><a href="javascript:void(0)" class="user-icon" style="display: block;">
-                </a><a href="javascript:void(0)" onclick="irAMiCuenta()">Mi cuenta</a>
-                <a href="javascript:void(0)" onclick="logout()" class="__web-inspector-hide-shortcut__">Salir</a>
-            </div>
+                <div class="cart-icons">
+                    <a href="javascript:void(0)" class="user-icon">
+                        <img src="/images/user.svg" alt="Usuario">
+                    </a>
+                    <div class="user-dropdown">
+                        <a href="/profile.html">Mi cuenta</a>
+                        <a href="javascript:void(0)" onclick="logout()">Salir</a>
+                    </div>
+                </div>
+                <a href="/login.html" class="login-btn" id="loginButton">Iniciar Sesión</a>
             </div>
         </div>
     </header>
@@ -110,7 +116,7 @@
     <footer>
         <div class="container">
             <div class="footer-logo">
-                <img src="/images/florista-logo.svg" alt="Florista">
+                <img src="/images/logo.png" alt="Florista">
             </div>
             <div class="footer-columns">
                 <div class="footer-column">

@@ -31,15 +31,18 @@
                 <a href="/catalog.html" class="search-icon">
                     <img src="/images/search.svg" alt="Buscar">
                 </a>
+                <!-- ... existing code ... -->
                 <a href="/order.html" class="cart-icon">
                     <img src="/images/cart.svg" alt="Carrito">
                 </a>
-                <div class="user-dropdown">
-                    <a href="javascript:void(0)" class="user-icon" style="display: block;">
+                <div class="cart-icons">
+                    <a href="javascript:void(0)" class="user-icon">
                         <img src="/images/user.svg" alt="Usuario">
                     </a>
-                    <a href="javascript:void(0)" onclick="irAMiCuenta()">Mi cuenta</a>
-                    <a href="javascript:void(0)" onclick="logout()">Salir</a>
+                    <div class="user-dropdown">
+                        <a href="/profile.html">Mi cuenta</a>
+                        <a href="javascript:void(0)" onclick="logout()">Salir</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -179,7 +182,7 @@
     <footer>
         <div class="container">
             <div class="footer-logo">
-                <img src="images/florista-logo.svg" alt="Florista">
+                <img src="images/logo.png" alt="Florista">
             </div>
             <div class="footer-columns">
                 <div class="footer-column">

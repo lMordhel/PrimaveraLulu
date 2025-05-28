@@ -279,26 +279,26 @@ function logout() {
     alert('Has cerrado sesión correctamente');
 }
 
+// NOTA: Este código es redundante con el de main.js y debería eliminarse
 // Mostrar/ocultar el menú desplegable al hacer clic en el icono de usuario
-document.addEventListener('DOMContentLoaded', function() {
-    const userIcon = document.querySelector('.user-icon');
-    if (userIcon) {
-        userIcon.addEventListener('click', function(e) {
-            e.preventDefault();
-            const dropdown = this.querySelector('.user-dropdown');
-            if (dropdown) { // <-- Previene el error si no existe
-                dropdown.classList.toggle('show');
-                // Cerrar el menú cuando se hace clic fuera de él
-                document.addEventListener('click', function closeDropdown(event) {
-                    if (!userIcon.contains(event.target)) {
-                        dropdown.classList.remove('show');
-                        document.removeEventListener('click', closeDropdown);
-                    }
-                });
-            }
-        });
-    }
-});
+// document.addEventListener('DOMContentLoaded', function() {
+//     const userIcon = document.querySelector('.user-icon');
+//     if (userIcon) {
+//         userIcon.addEventListener('click', function(e) {
+//             e.preventDefault();
+//             const dropdown = this.querySelector('.user-dropdown');
+//             if (dropdown) { 
+//                 dropdown.classList.toggle('show');
+//                 document.addEventListener('click', function closeDropdown(event) {
+//                     if (!userIcon.contains(event.target)) {
+//                         dropdown.classList.remove('show');
+//                         document.removeEventListener('click', closeDropdown);
+//                     }
+//                 });
+//             }
+//         });
+//     }
+// });
 
 // Función para cerrar sesión
 function toggleDropdown() {

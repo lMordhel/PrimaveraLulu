@@ -142,116 +142,69 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', animateOnScroll);
 });
 
-// Función para manejar el menú desplegable del usuario
-document.addEventListener('DOMContentLoaded', function() {
-    // Mostrar u ocultar el menú de usuario según el estado de login
-    const userIcon = document.querySelector('.user-icon');
-    const userDropdown = document.querySelector('.user-dropdown');
-    // Si tienes un id, por ejemplo: const userDropdown = document.getElementById('userDropdown');
+    function toggleDropdown() {
+        const dropdown = document.getElementById("userDropdown");
+        dropdown.classList.toggle("show");
+    }
 
-    // Verifica si el usuario está logeado
-    const usuarioLogeado = localStorage.getItem('usuarios');
-
-    if (userIcon && userDropdown) {
-        if (usuarioLogeado) {
-            // Mostrar el icono y el menú de usuario
-            userIcon.style.display = 'block';
-        } else {
-            // Ocultar el icono y el menú de usuario
-            userIcon.style.display = 'none';
+    // Opcional: cerrar si haces clic fuera
+    window.addEventListener("click", function (e) {
+        if (!e.target.closest(".user-menu-container")) {
+            document.getElementById("userDropdown").classList.remove("show");
         }
+    });
+
+    function irAMiCuenta() {
+        window.location.href = "/mi-cuenta"; // Ajusta la URL
     }
+
+    // Función para manejar la visibilidad y comportamiento del menú de usuario
+    document.addEventListener('DOMContentLoaded', function() {
+        // Seleccionar elementos del DOM
+        const userIcon = document.querySelector('.user-icon');
+        const userDropdown = document.querySelector('.user-dropdown');
+        const cartIcons = document.querySelector('.cart-icons');
+        const loginButton = document.getElementById('loginButton');
+        
+        // Verificar si el usuario está logeado consultando localStorage
+        const usuarioLogeado = localStorage.getItem('usuarios');
     
-    if (userIcon) {
-        userIcon.addEventListener('click', function(e) {
-            e.preventDefault();
-            const dropdown = this.querySelector('.user-dropdown');
-            if (dropdown) { // <-- Añadido para evitar el error
-                dropdown.classList.toggle('active');
+        if (cartIcons && userIcon && userDropdown) {
+            if (usuarioLogeado) {
+                // Si hay un usuario logeado, mostrar el icono y permitir el menú desplegable
+                userIcon.style.display = 'block';
+                // Añadir clase para permitir el hover
+                cartIcons.classList.add('logged-in');
+                // Ocultar el botón de inicio de sesión
+                if (loginButton) loginButton.style.display = 'none';
+            } else {
+                // Si no hay usuario logeado, ocultar el icono y el menú desplegable
+                userIcon.style.display = 'none';
+                userDropdown.style.display = 'none';
+                // Remover clase para desactivar el hover
+                cartIcons.classList.remove('logged-in');
+                // Mostrar el botón de inicio de sesión
+                if (loginButton) loginButton.style.display = 'block';
             }
-            // Cerrar el menú cuando se hace clic fuera de él
-            document.addEventListener('click', function closeDropdown(event) {
-                if (!userIcon.contains(event.target)) {
-                    if (dropdown) { // <-- Añadido para evitar el error
-                        dropdown.classList.remove('active');
-                    }
-                    document.removeEventListener('click', closeDropdown);
-                }
-            });
-        });
-    }});
-    
-    // Función para cerrar sesión
-    const logoutLink = document.querySelector('.user-dropdown a[href="/logout"]');
-    if (logoutLink) {
-        logoutLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Eliminar datos de sesión del localStorage
-            localStorage.removeItem('usuarios');
-            // Redirigir a la página de inicio o login
-            window.location.href = '/login.html';
-        });
-    }
-
-    // Función para ir a Mi Cuenta
-    // ...existing code...
-
-// Mover la función fuera del evento DOMContentLoaded para hacerla global
-function irAMiCuenta() {
-    if (estaLogueado()) {
-        window.location.href = '/profile.html';
-    } else {
-        window.location.href = '/login.html';
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Mostrar u ocultar el menú de usuario según el estado de login
-    const userIcon = document.querySelector('.user-icon');
-    const userDropdown = document.querySelector('.user-dropdown');
-    // Si tienes un id, por ejemplo: const userDropdown = document.getElementById('userDropdown');
-
-    // Verifica si el usuario está logeado
-    const usuarioLogeado = localStorage.getItem('usuarios');
-
-    if (userIcon && userDropdown) {
-        if (usuarioLogeado) {
-            // Mostrar el icono y el menú de usuario
-            userIcon.style.display = 'block';
-        } else {
-            // Ocultar el icono y el menú de usuario
-            userIcon.style.display = 'none';
         }
-    }
-    
-    if (userIcon) {
-        userIcon.addEventListener('click', function(e) {
-            e.preventDefault();
-            const dropdown = this.querySelector('.user-dropdown');
-            if (dropdown) { // <-- Añadido para evitar el error
-                dropdown.classList.toggle('active');
-            }
-            // Cerrar el menú cuando se hace clic fuera de él
-            document.addEventListener('click', function closeDropdown(event) {
-                if (!userIcon.contains(event.target)) {
-                    if (dropdown) { // <-- Añadido para evitar el error
-                        dropdown.classList.remove('active');
-                    }
-                    document.removeEventListener('click', closeDropdown);
-                }
+        
+        // Función para cerrar sesión
+        const logoutLink = document.querySelector('.user-dropdown a[onclick="logout()"]');
+        if (logoutLink) {
+            logoutLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Eliminar información del usuario del localStorage
+                localStorage.removeItem('usuarios');
+                // Redirigir a la página de login
+                window.location.href = "/login.html";
             });
-        });
+        }
+    });
+
+    // Función para cerrar sesión (accesible globalmente)
+    function logout() {
+        // Eliminar información del usuario del localStorage
+        localStorage.removeItem('usuarios');
+        // Redirigir a la página de login
+        window.location.href = "/login.html";
     }
-    
-    // Función para cerrar sesión
-    const logoutLink = document.querySelector('.user-dropdown a[href="/logout"]');
-    if (logoutLink) {
-        logoutLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Eliminar datos de sesión del localStorage
-            localStorage.removeItem('usuarios');
-            // Redirigir a la página de inicio o login
-            window.location.href = '/login.html';
-        });
-    }
-});
