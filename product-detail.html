@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orange Amaryllis - Florista</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="/">Florista</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/catalog.html">Catálogo</a></li>
+                    <li><a href="/contact.html">Contacto</a></li>
+                    <li><a href="/order.html">Pedido</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icons">
+                <a href="/catalog.html" class="search-icon">
+                    <img src="/images/search.svg" alt="Buscar">
+                </a>
+                <a href="/order.html" class="cart-icon">
+                    <img src="/images/cart.svg" alt="Carrito">
+                </a>
+                <div class="cart-icons">
+                    <a href="javascript:void(0)" class="user-icon">
+                        <img src="/images/user.svg" alt="Usuario">
+                    </a>
+                    <div class="user-dropdown">
+                        <a href="/profile.html">Mi cuenta</a>
+                        <a href="javascript:void(0)" onclick="logout()">Salir</a>
+                    </div>
+                </div>
+                <a href="/login.html" class="login-btn" id="loginButton">Iniciar Sesión</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="product-page">
+        <div class="container">
+            <div class="product-grid">
+                <div class="product-thumbnails">
+                    <div class="thumbnail active">
+                        <img src="images/orange-amaryllis-1.jpg" alt="Orange Amaryllis">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="images/orange-amaryllis-2.jpg" alt="Orange Amaryllis">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="images/orange-amaryllis-3.jpg" alt="Orange Amaryllis">
+                    </div>
+                </div>
+                <div class="product-main-image">
+                    <img src="images/orange-amaryllis-main.jpg" alt="Orange Amaryllis">
+                </div>
+                <div class="product-info">
+                    <h1>Orange Amaryllis</h1>
+                    <p class="product-description">
+                        Estas flores de color naranja brillante son perfectas para añadir un toque de color a cualquier espacio. Las amarilis son conocidas por su belleza duradera y su capacidad para florecer en interiores.
+                    </p>
+                    <div class="product-meta">
+                        <div class="product-price">S/ 165.00</div>
+                        <div class="product-quantity">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" value="1" min="1" class="quantity-input">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-tabs">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="description">Descripción</button>
+                    <button class="tab-btn" data-tab="information">Información</button>
+                    <button class="tab-btn" data-tab="reviews">Reseñas</button>
+                </div>
+                <div class="tab-content active" id="description">
+                    <h3>La esencia de Florista</h3>
+                    <p>Nuestras flores son cultivadas con cuidado y seleccionadas a mano para garantizar la mejor calidad. Cada ramo está diseñado con atención al detalle y pasión por la belleza natural.</p>
+                </div>
+                <div class="tab-content" id="information">
+                    <h3>Información del producto</h3>
+                    <p>Nombre: Orange Amaryllis<br>
+                    Altura: 50-60 cm<br>
+                    Duración: 1 a 2 años<br>
+                    Cuidados: Mantenerlo fuera del polvo o agua</p>
+                </div>
+                <div class="tab-content" id="reviews">
+                    <h3>Reseñas de clientes</h3>
+                    <p>Aún no hay reseñas para este producto. ¡Sé el primero en compartir tu experiencia!</p>
+                </div>
+            </div>
+
+            <div class="product-suggestions">
+                <h2>Productos Relacionados</h2>
+                <div class="suggestions-grid">
+                    <div class="suggestion-item">
+                        <img src="images/related-1.jpg" alt="Flores relacionadas">
+                        <h3>Ramo de Primavera</h3>
+                        <p class="price">S/ 140.00</p>
+                    </div>
+                    <div class="suggestion-item">
+                        <img src="images/related-2.jpg" alt="Flores relacionadas">
+                        <h3>Tulipanes Rosados</h3>
+                        <p class="price">S/ 155.00</p>
+                    </div>
+                    <div class="suggestion-item">
+                        <img src="images/related-3.jpg" alt="Flores relacionadas">
+                        <h3>Lirios Blancos</h3>
+                        <p class="price">S/ 148.00</p>
+                    </div>
+                    <div class="suggestion-item">
+                        <img src="images/related-4.jpg" alt="Flores relacionadas">
+                        <h3>Rosas Rojas</h3>
+                        <p class="price">S/ 165.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="Florista">
+            </div>
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <p>info@florista.com</p>
+                    <p>+51 929540815</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Dirección</h4>
+                    <p>HHAA SAUL CANTORAL</p>
+                    <p>Lima, Perú</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Horario</h4>
+                    <p>Lun-Vie: 9:00 - 18:00</p>
+                    <p>Sáb: 10:00 - 14:00</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/jardindeprimaveraeternalulu/" target="_blank" rel="noopener noreferrer">
+                            <img src="/images/instagram.svg" alt="Instagram">
+                        </a>
+                        <a href="https://www.facebook.com/search/top/?q=primavera%20lulu" target="_blank" rel="noopener noreferrer"><img src="/images/facebook.svg" alt="Facebook"></a>
+                        <a href="https://www.tiktok.com/@jardindeprimaveralulu" target="_blank" rel="noopener noreferrer"><img src="/images/twitter.svg" alt="Twitter"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Florista. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="/js/auth.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

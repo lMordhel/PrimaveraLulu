@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Florista - Tienda de Flores</title>
+    <title>Floreria Lulu - Tienda de Flores</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/animations.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,18 +11,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    
     <header>
         <div class="container">
             <div class="logo">
-                <a href="/">Florista</a>
+                <a href="/">Floreria lulu</a>
             </div>
             <nav>
                 <ul>
                     <li><a href="/">Inicio</a></li>
                     <li><a href="/catalog.html">Catálogo</a></li>
                     <li><a href="/contact.html">Contacto</a></li>
-                    <li><a href="/order.html">Pedido</a></li>
                 </ul>
             </nav>
             <div class="cart-icons">
@@ -46,89 +44,164 @@
         </div>
     </header>
 
-    <main class="product-page">
-        <div class="container">
-            <div class="product-grid">
-                <div class="product-thumbnails">
-                    <div class="thumbnail active">
-                        <img src="images/orange-amaryllis-1.jpg" alt="Orange Amaryllis">
-                    </div>
-                    <div class="thumbnail">
-                        <img src="images/orange-amaryllis-2.jpg" alt="Orange Amaryllis">
-                    </div>
-                    <div class="thumbnail">
-                        <img src="images/orange-amaryllis-3.jpg" alt="Orange Amaryllis">
-                    </div>
+    <main class="home-page">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Descubra la encantadora colección de nuestra floristería</h1>
+                    <p>Bienvenido a nuestro encantador emporio floral, donde la belleza florece a los suyos cobran forma. Adéntrese en un mundo de colores vibrantes, fragancias cautivadoras y arte que le cautivará.</p>
+                    <a href="/catalog.html" class="catalog-btn">Ver Catálogo →</a>
                 </div>
-                <div class="product-main-image">
-                    <img src="images/orange-amaryllis-main.jpg" alt="Orange Amaryllis">
-                </div>
-                <div class="product-info">
-                    <h1>Orange Amaryllis</h1>
-                    <p class="product-description">
-                        Estas flores de color naranja brillante son perfectas para añadir un toque de color a cualquier espacio. Las amarilis son conocidas por su belleza duradera y su capacidad para florecer en interiores.
-                    </p>
-                    <div class="product-meta">
-                        <div class="product-price">S/ 165.00</div>
-                        <div class="product-quantity">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="number" value="1" min="1" class="quantity-input">
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                        <button class="add-to-cart-btn">Añadir al carrito</button>
-                    </div>
+                <div class="hero-image">
+                    <img src="/images/orange-amaryllis-main.jpg" alt="Colección floral">
                 </div>
             </div>
+        </section>
 
-            <div class="product-tabs">
-                <div class="tabs-header">
-                    <button class="tab-btn active" data-tab="description">Descripción</button>
-                    <button class="tab-btn" data-tab="information">Información</button>
-                    <button class="tab-btn" data-tab="reviews">Reseñas</button>
+        <!-- Catalog Grid Section -->
+        <section class="catalog-preview">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Catálogo</h2>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active">Todos</button>
+                        <button class="filter-tab">Ramos</button>
+                        <button class="filter-tab">Arreglos</button>
+                        <button class="filter-tab">Eventos</button>
+                    </div>
                 </div>
-                <div class="tab-content active" id="description">
-                    <h3>La esencia de Florista</h3>
-                    <p>Nuestras flores son cultivadas con cuidado y seleccionadas a mano para garantizar la mejor calidad. Cada ramo está diseñado con atención al detalle y pasión por la belleza natural.</p>
+                <div class="catalog-preview-grid">
+                    <!-- Repeat this item 8 times -->
+                    <div class="catalog-preview-item">
+                        <img src="/images/orange-amaryllis-1.jpg" alt="Arreglo floral">
+                        <h3>Ramo Primaveral</h3>
+                        <p class="price">S/ 120</p>
+                        <a href="/product-detail.html" class="view-btn">Ver detalles</a>
+                    </div>
+                    <div class="catalog-preview-item">
+                        <img src="/images/orange-amaryllis-2.jpg" alt="Arreglo floral">
+                        <h3>Bouquet Elegante</h3>
+                        <p class="price">S/ 150</p>
+                        <a href="/product-detail.html" class="view-btn">Ver detalles</a>
+                    </div>
+                    <div class="catalog-preview-item">
+                        <img src="/images/orange-amaryllis-3.jpg" alt="Arreglo floral">
+                        <h3>Arreglo Festivo</h3>
+                        <p class="price">S/ 180</p>
+                        <a href="/product-detail.html" class="view-btn">Ver detalles</a>
+                    </div>
+                    <div class="catalog-preview-item">
+                        <img src="/images/orange-amaryllis-main.jpg" alt="Arreglo floral">
+                        <h3>Ramo Especial</h3>
+                        <p class="price">S/ 200</p>
+                        <a href="/product-detail.html" class="view-btn">Ver detalles</a>
+                    </div>
+                    <div class="catalog-preview-item">
+                        <img src="/images/orange-amaryllis-1.jpg" alt="Arreglo floral">
+                        <h3>Bouquet Romántico</h3>
+                        <p class="price">S/ 130</p>
+                        <a href="/product-detail.html" class="view-btn">Ver detalles</a>
+                    </div>
+                    <div class="catalog-preview-item">
+                        <img src="/images/orange-amaryllis-2.jpg" alt="Arreglo floral">
+                        <h3>Arreglo Delicado</h3>
+                        <p class="price">S/ 160</p>
+                        <a href="/product-detail.html" class="view-btn">Ver detalles</a>
+                    </div>
+                    <div class="catalog-preview-item">
+                        <img src="/images/orange-amaryllis-3.jpg" alt="Arreglo floral">
+                        <h3>Ramo Exótico</h3>
+                        <p class="price">S/ 190</p>
+                        <a href="/product-detail.html" class="view-btn">Ver detalles</a>
+                    </div>
+                    <div class="catalog-preview-item">
+                        <img src="/images/orange-amaryllis-main.jpg" alt="Arreglo floral">
+                        <h3>Bouquet Premium</h3>
+                        <p class="price">S/ 220</p>
+                        <a href="/product-detail.html" class="view-btn">Ver detalles</a>
+                    </div>
                 </div>
-                <div class="tab-content" id="information">
-                    <h3>Información del producto</h3>
-                    <p>Nombre: Orange Amaryllis<br>
-                    Altura: 50-60 cm<br>
-                    Duración: 1 a 2 años<br>
-                    Cuidados: Mantenerlo fuera del polvo o agua</p>
-                </div>
-                <div class="tab-content" id="reviews">
-                    <h3>Reseñas de clientes</h3>
-                    <p>Aún no hay reseñas para este producto. ¡Sé el primero en compartir tu experiencia!</p>
+                <div class="view-more-container">
+                    <a href="/catalog.html" class="view-more-btn">Ver más productos</a>
                 </div>
             </div>
+        </section>
 
-            <div class="product-suggestions">
-                <h2>Productos Relacionados</h2>
-                <div class="suggestions-grid">
-                    <div class="suggestion-item">
-                        <img src="images/related-1.jpg" alt="Flores relacionadas">
-                        <h3>Ramo de Primavera</h3>
-                        <p class="price">S/ 140.00</p>
+        <!-- Feature Section -->
+        <section class="feature-section">
+            <div class="container">
+                <div class="feature-content">
+                    <h2>Aromas del Alma: Tejiendo Recuerdos con Flores</h2>
+                    <p>Descubre cómo nuestros arreglos florales pueden transformar momentos ordinarios en experiencias extraordinarias. Cada flor cuenta una historia, cada arreglo transmite un sentimiento único.</p>
+                    <a href="/catalog.html" class="feature-btn">Explorar colección</a>
+                </div>
+                <div class="feature-images">
+                    <img src="/images/orange-amaryllis-1.jpg" alt="Floristería" class="feature-img-1">
+                    <img src="/images/orange-amaryllis-2.jpg" alt="Arreglo floral" class="feature-img-2">
+                </div>
+            </div>
+        </section>
+
+        <!-- Collection Section -->
+        <section class="collection-section">
+            <div class="container">
+                <h2>Catálogo de Encantos Florales para Cada Ocasión</h2>
+                <div class="collection-grid">
+                    <div class="collection-item">
+                        <img src="/images/orange-amaryllis-1.jpg" alt="Colección floral">
+                        <h3>Ramos de Novia</h3>
+                        <a href="/catalog.html" class="collection-btn">Ver colección</a>
                     </div>
-                    <div class="suggestion-item">
-                        <img src="images/related-2.jpg" alt="Flores relacionadas">
-                        <h3>Tulipanes Rosados</h3>
-                        <p class="price">S/ 155.00</p>
+                    <div class="collection-item">
+                        <img src="/images/orange-amaryllis-2.jpg" alt="Colección floral">
+                        <h3>Arreglos de Mesa</h3>
+                        <a href="/catalog.html" class="collection-btn">Ver colección</a>
                     </div>
-                    <div class="suggestion-item">
-                        <img src="images/related-3.jpg" alt="Flores relacionadas">
-                        <h3>Lirios Blancos</h3>
-                        <p class="price">S/ 148.00</p>
+                    <div class="collection-item">
+                        <img src="/images/orange-amaryllis-3.jpg" alt="Colección floral">
+                        <h3>Regalos Especiales</h3>
+                        <a href="/catalog.html" class="collection-btn">Ver colección</a>
                     </div>
-                    <div class="suggestion-item">
-                        <img src="images/related-4.jpg" alt="Flores relacionadas">
-                        <h3>Rosas Rojas</h3>
-                        <p class="price">S/ 165.00</p>
+                    <div class="collection-item">
+                        <img src="/images/orange-amaryllis-main.jpg" alt="Colección floral">
+                        <h3>Decoración Eventos</h3>
+                        <a href="/catalog.html" class="collection-btn">Ver colección</a>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Promo Section -->
+        <section class="promo-section">
+            <div class="container">
+                <div class="promo-content">
+                    <h2>¡20% de descuento en tu primera compra en nuestra tienda!</h2>
+                    <p>Celebra con nosotros y disfruta de un 20% de descuento en tu primera compra. Nuestros arreglos florales son perfectos para cualquier ocasión, desde celebraciones hasta momentos de reflexión.</p>
+                    <a href="/catalog.html" class="promo-btn">Comprar ahora</a>
+                </div>
+                <div class="promo-image">
+                    <img src="/images/orange-amaryllis-3.jpg" alt="Promoción floral">
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Manténgase conectado: siga nuestro viaje floral</h2>
+                    <p>Suscríbase a nuestro boletín para recibir las últimas noticias, ofertas exclusivas y consejos sobre el cuidado de las flores directamente en su bandeja de entrada.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Su correo electrónico" required>
+                        <button type="submit" class="newsletter-btn">Suscribirse</button>
+                    </form>
+                </div>
+                <div class="newsletter-image">
+                    <img src="/images/orange-amaryllis-2.jpg" alt="Newsletter">
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>

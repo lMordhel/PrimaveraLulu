@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Funcionalidad para filtros de catálogo
     const filterBtns = document.querySelectorAll('.filter-btn');
     const catalogItems = document.querySelectorAll('.catalog-item');
+    const catalogGrid = document.querySelector('.catalog-grid');
     
     if (filterBtns.length > 0 && catalogItems.length > 0) {
         filterBtns.forEach(btn => {
@@ -73,14 +74,44 @@ document.addEventListener('DOMContentLoaded', function() {
                 filterBtns.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
                 
-                // Filtrar elementos del catálogo
+                // Ocultar todos los elementos primero
                 catalogItems.forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
+                    item.style.display = 'none';
                 });
+                
+                // Mostrar solo los elementos filtrados
+                const filteredItems = Array.from(catalogItems).filter(item => {
+                    return filter === 'all' || item.getAttribute('data-category') === filter;
+                });
+                
+                // Mostrar los elementos filtrados
+                filteredItems.forEach(item => {
+                    item.style.display = 'block';
+                });
+                
+                // Reorganizar el grid para eliminar espacios vacíos
+                if (filter !== 'all') {
+                    // Aplicar estilos para reorganizar el grid
+                    catalogGrid.style.gridTemplateColumns = 'repeat(3, 1fr)';
+                    catalogGrid.style.gridGap = '30px';
+                    
+                    // Asegurar que los elementos visibles ocupen las primeras posiciones
+                    filteredItems.forEach((item, index) => {
+                        // Calcular la posición en el grid
+                        const row = Math.floor(index / 3);
+                        const col = index % 3;
+                        
+                        // Aplicar posición específica
+                        item.style.gridRow = row + 1;
+                        item.style.gridColumn = col + 1;
+                    });
+                } else {
+                    // Restaurar el orden original para la opción "Todos"
+                    catalogItems.forEach(item => {
+                        item.style.gridRow = 'auto';
+                        item.style.gridColumn = 'auto';
+                    });
+                }
             });
         });
     }
